@@ -5,14 +5,7 @@ import java.awt.event.KeyEvent;
 import com.lss.flasher.LEngine;
 import com.lss.flasher.StateHandler.StateHandler;
 
-
-
 public class Start extends LEngine {
-
-	/**
-	 * This is number!
-	 */
-	public static int NUMBER = 0;
 	
 	public Start(int width, int height, String frameName) {
 		super(width, height, frameName);
