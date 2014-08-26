@@ -1,6 +1,5 @@
 package com.game.main;
 
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 
@@ -21,10 +20,10 @@ public class Player extends Mob {
 	public Player(int x, int y) {
 		super(x, y);
 
-		walk.addFrame(Loader.loadImage("/grimidle.png"));
-		walk.addFrame(Loader.loadImage("/grimwalk.png"));
-		attackAnimation.addFrame(Loader.loadImage("/grimhit.png"));
-		attackAnimation.addFrame(Loader.loadImage("/grimhit1.png"));
+		walk.addFrame(Loader.loadImageWithAbsolutePath(Game.RESOURCES + "/grimidle.png"));
+		walk.addFrame(Loader.loadImageWithAbsolutePath(Game.RESOURCES + "/grimwalk.png"));
+		attackAnimation.addFrame(Loader.loadImageWithAbsolutePath(Game.RESOURCES + "/grimhit.png"));
+		attackAnimation.addFrame(Loader.loadImageWithAbsolutePath(Game.RESOURCES + "/grimhit1.png"));
 
 		shape = new Shape(0, 0, 0, 0);
 		shape.setShapeRender(new ShapeRender() {
@@ -157,7 +156,6 @@ public class Player extends Mob {
 			
 		}
 
-		System.out.println(attackAnimation.selectedImage + ", " + attackAnimation.frames.size());
 
 		
 

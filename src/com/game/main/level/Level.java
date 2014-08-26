@@ -6,7 +6,6 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.jdom2.DataConversionException;
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.input.SAXBuilder;
@@ -159,7 +158,7 @@ public class Level {
 						Element tile = layerContents.get(x + y * width);
 
 						if (!tile.getAttributeValue("tile").equals("null")) {
-							Image image = Loader.loadImage(tile.getAttributeValue("tile"));
+							Image image = Loader.loadImageWithAbsolutePath(tile.getAttributeValue("tile"));
 							Tile t = new Tile(tile.getAttributeValue("tile"), image, x, y);
 							l.tiles[x + y * width] = t;
 

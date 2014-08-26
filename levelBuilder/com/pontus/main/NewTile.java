@@ -1,13 +1,12 @@
 package com.pontus.main;
 
 import java.awt.Component;
-import java.awt.MenuItem;
-import java.awt.Window.Type;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -16,8 +15,8 @@ import javax.swing.JSpinner;
 import javax.swing.JTextField;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JCheckBox;
 
+@SuppressWarnings("serial")
 public class NewTile extends JFrame {
 
 	private JPanel contentPane;
@@ -52,7 +51,7 @@ public class NewTile extends JFrame {
 		final JButton btnBrowse = new JButton("Browse");
 		btnBrowse.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				chooser.setCurrentDirectory(new File("./res"));
+				chooser.setCurrentDirectory(new File("C:\\Users\\Pontus\\AppData\\Roaming\\LostSourceStudios\\ReapingTheBenefits\\resources\\textures"));
 				int returnVal = chooser.showSaveDialog(frame);
 
 				if (returnVal == JFileChooser.APPROVE_OPTION) {
@@ -75,6 +74,7 @@ public class NewTile extends JFrame {
 
 		JButton btnDone = new JButton("Done!");
 		btnDone.addActionListener(new ActionListener() {
+			@SuppressWarnings("unchecked")
 			public void actionPerformed(ActionEvent e) {
 
 				String path = textField.getText();

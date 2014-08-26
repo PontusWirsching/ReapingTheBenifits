@@ -2,6 +2,7 @@ package com.game.main;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.io.File;
 
 import com.game.main.level.Level;
 import com.game.main.level.LevelHandler;
@@ -9,8 +10,14 @@ import com.lss.flasher.LEngine;
 import com.lss.flasher.StateHandler.State;
 
 @SuppressWarnings("serial")
-public class Game extends State {
+public class Game extends State
+{
 
+	public static String PATH = System.getenv("APPDATA") + File.separator + "LostSourceStudios" + File.separator + "ReapingTheBenefits";
+	public static File FILE_PATH = new File(PATH);
+
+	public static String RESOURCES = PATH + File.separator + "resources" + File.separator + "textures";
+	
 	public static int tileSize = 128;
 
 	public static int xOff, yOff;
@@ -18,42 +25,55 @@ public class Game extends State {
 	public static Player player;
 
 	public static int health = 1;
-	
+
 	public static int money;
 
-
-	public Game(String name) {
+	public Game(String name)
+	{
 		super(name);
 
-		player = new Player(0,0);
+		/*
+		 * Generates a new folder in %appdata% if it does'nt exists.
+		 */
+		if (!FILE_PATH.exists())
+		{
+			System.err.println("[WARN] Could not find data folder! Generating new one now!");
+			FILE_PATH.mkdirs();
+			new File(PATH + File.separator + "levels").mkdirs();
+			new File(PATH + File.separator + "resources" + File.separator + "textures").mkdirs();
 
+		}
 		
 		
-		LevelHandler.add(new Level("res/town.xml"));
+		
+		
+		
+		player = new Player(0, 0);
+
+//		LevelHandler.add(new Level("res/town.xml"));
+		LevelHandler.add(new Level(PATH + File.separator + "levels" + File.separator + "main.xml"));
 
 	}
 
 	@Override
-	public void update() {
-		
-		
+	public void update()
+	{
+
 		xOff = player.x - LEngine.WIDTH / 2 + 32;
 		yOff = player.y - LEngine.HEIGHT / 2 + 32;
-		
+
 		LevelHandler.update();
 		player.update();
 		healthbar.run();
 
-		
-		}
+	}
 
 	@Override
-	public void render(Graphics g1) {
-		
+	public void render(Graphics g1)
+	{
+
 		Graphics2D g = (Graphics2D) g1.create();
-		
-		
-		
+
 		LevelHandler.render(g);
 		player.render(g);
 
@@ -62,12 +82,14 @@ public class Game extends State {
 	}
 
 	@Override
-	public void selected() {
+	public void selected()
+	{
 
 	}
 
 	@Override
-	public void unSelected() {
+	public void unSelected()
+	{
 
 	}
 

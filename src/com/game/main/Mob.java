@@ -3,7 +3,6 @@ package com.game.main;
 import java.awt.Graphics;
 
 import com.game.main.level.LevelHandler;
-import com.lss.flasher.LEngine;
 
 public abstract class Mob {
 

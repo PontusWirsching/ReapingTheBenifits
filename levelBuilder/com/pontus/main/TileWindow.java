@@ -17,14 +17,17 @@ import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.border.EmptyBorder;
 
+@SuppressWarnings("serial")
 public class TileWindow extends JFrame {
 
 	private JPanel contentPane;
 
+	@SuppressWarnings("rawtypes")
 	public static final DefaultListModel listModel = new DefaultListModel();
 
 	public static HashMap<String, Tile> tiles = new HashMap<>();
 	
+	@SuppressWarnings("rawtypes")
 	public static JList list = new JList();
 	private JButton btnTest;
 	private JScrollPane scrollPane;
@@ -36,6 +39,7 @@ public class TileWindow extends JFrame {
 	/**
 	 * Create the frame.
 	 */
+	@SuppressWarnings("unused")
 	public TileWindow(final Component frame) {
 		setAutoRequestFocus(false);
 		setAlwaysOnTop(true);
@@ -52,6 +56,7 @@ public class TileWindow extends JFrame {
 		
 		btnTest = new JButton("Test");
 		btnTest.addActionListener(new ActionListener() {
+			@SuppressWarnings("unchecked")
 			public void actionPerformed(ActionEvent e) {
 				 listModel.addElement("Sprite");
 				 list.setModel(listModel);

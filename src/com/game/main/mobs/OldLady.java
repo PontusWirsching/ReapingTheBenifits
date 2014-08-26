@@ -6,7 +6,6 @@ import java.util.Random;
 
 import com.game.main.Game;
 import com.game.main.Mob;
-import com.lss.flasher.LEngine;
 import com.lss.flasher.Graphics.Animation;
 import com.lss.flasher.Graphics.Shape;
 import com.lss.flasher.Graphics.ShapeRender;
@@ -23,10 +22,11 @@ public class OldLady extends Mob {
 
 		speed = 1;
 
-		walk.addFrame(Loader.loadImage("/oldlady.png"));
-		walk.addFrame(Loader.loadImage("/oldlady1.png"));
-		walk.addFrame(Loader.loadImage("/oldlady2.png"));
+		walk.addFrame(Loader.loadImageWithAbsolutePath(Game.RESOURCES + "/oldlady.png"));
+		walk.addFrame(Loader.loadImageWithAbsolutePath(Game.RESOURCES + "/oldlady1.png"));
+		walk.addFrame(Loader.loadImageWithAbsolutePath(Game.RESOURCES + "/oldlady2.png"));
 
+		
 		shape = new Shape(0, 0, 0, 0);
 		shape.setShapeRender(new ShapeRender() {
 			public void render(Graphics2D g) {

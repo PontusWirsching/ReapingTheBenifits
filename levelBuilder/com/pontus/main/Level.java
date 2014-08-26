@@ -11,6 +11,7 @@ import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.input.SAXBuilder;
 
+import com.game.main.Game;
 import com.game.main.level.Tile;
 import com.lss.flasher.Input.Mouse;
 import com.lss.flasher.MathOperations.Vector2i;
@@ -49,6 +50,7 @@ public class Level {
 	/**
 	 * Update method
 	 */
+	@SuppressWarnings("unused")
 	public void update() {
 		// if (((Mouse.getX() + Main.xOff) / Main.tileSize) >= 0)
 		// if (((Mouse.getX() + Main.xOff) / Main.tileSize) < width)
@@ -68,19 +70,18 @@ public class Level {
 
 				selection.setY(((Mouse.getY() * 2 + Main.yOff) / Main.tileSize));
 
-		System.out.println(selection.getX() + ", " + selection.getY());
+//		System.out.println(selection.getX() + ", " + selection.getY());
 
 		if (Mouse.getButton() == 1) {
 			try {
 				String dir = System.getProperty("user.dir");
 				String path = selectedTile.path;
 
-				String relative = path.replace(dir, "");
+				
 
-				relative = relative.replace("\\", "/");
-				relative = relative.replace("/res", "");
 
-				Tile tile = new Tile(relative, Loader.loadImage(relative.toString()));
+				
+				Tile tile = new Tile(path, Loader.loadImageWithAbsolutePath(path));
 				tile.solid = selectedTile.collision;
 				getWorkingLayer().setTile(selection.getX(), selection.getY(), tile);
 			} catch (Exception e) {
@@ -190,7 +191,7 @@ public class Level {
 						Element tile = layerContents.get(x + y * width);
 
 						if (!tile.getAttributeValue("tile").equals("null")) {
-							Image image = Loader.loadImage(tile.getAttributeValue("tile"));
+							Image image = Loader.loadImageWithAbsolutePath(tile.getAttributeValue("tile"));
 							Tile t = new Tile(tile.getAttributeValue("tile"), image, x, y);
 							l.tiles[x + y * width] = t;
 

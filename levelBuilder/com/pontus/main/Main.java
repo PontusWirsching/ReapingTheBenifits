@@ -7,12 +7,9 @@ import java.awt.MenuItem;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
-import java.awt.MenuBar;
 import java.io.File;
 
 import javax.swing.JFileChooser;
-import javax.swing.JSeparator;
-import javax.swing.JToolBar.Separator;
 import javax.swing.UIManager;
 
 import com.lss.flasher.LEngine;
@@ -32,6 +29,7 @@ public class Main extends LEngine {
 
 	public TileWindow t;
 
+	@SuppressWarnings("unchecked")
 	public Main(int width, int height, String frameName) {
 		super(width, height, frameName);
 
@@ -58,6 +56,7 @@ public class Main extends LEngine {
 		final JFileChooser chooser = new JFileChooser();
 
 		newLevel.addActionListener(new ActionListener() {
+			@SuppressWarnings("unused")
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				NewLevel nl = new NewLevel(frame);
@@ -68,7 +67,7 @@ public class Main extends LEngine {
 
 		loadLevel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent a) {
-				chooser.setCurrentDirectory(new File("./res"));
+				chooser.setCurrentDirectory(new File("C:\\Users\\Pontus\\AppData\\Roaming\\LostSourceStudios\\ReapingTheBenefits\\levels"));
 				int returnVal = chooser.showOpenDialog(frame);
 
 				if (returnVal == JFileChooser.APPROVE_OPTION) {
@@ -94,6 +93,7 @@ public class Main extends LEngine {
 
 		MenuItem add = new MenuItem("Add Tile..");
 		add.addActionListener(new ActionListener() {
+			@SuppressWarnings("unused")
 			public void actionPerformed(ActionEvent arg0) {
 				NewTile t = new NewTile(frame);
 			}
@@ -114,13 +114,13 @@ public class Main extends LEngine {
 
 		frame.setMenuBar(menu);
 
-		String path = "G:\\ReapingTheBenifits\\res\\grass.png";
-		int size = 32;
-		String n = "Grass";
-		boolean collision = false;
-
-		TileWindow.tiles.put(n, new Tile(path, collision, n, size));
-		TileWindow.listModel.addElement(n);
+//		String path = "G:\\ReapingTheBenifits\\res\\grass.png";
+//		int size = 32;
+//		String n = "Grass";
+//		boolean collision = false;
+//
+//		TileWindow.tiles.put(n, new Tile(path, collision, n, size));
+//		TileWindow.listModel.addElement(n);
 		TileWindow.list.setModel(TileWindow.listModel);
 
 		skipIntro();

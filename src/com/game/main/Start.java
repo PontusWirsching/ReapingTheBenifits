@@ -13,7 +13,9 @@ public class Start extends LEngine {
 	 * for you i think. Ask me or gavin if you have any questions!
 	 */
 	
-	//TODO - Change Loading and Saving dir to %appdata% lss folder
+	
+	//TODO - Optimize rendering for both game and editor.
+	//TODO - DONE - Change Loading and Saving dir to %appdata% lss folder
 	//TODO - Add more NPC's - Talk to GAVIN                                       <-----------------
 	//TODO - Add more tiles and design the map                                    <-----------------
 	//TODO - Add barricades around the map like road blocks and trees etc.        <-----------------
@@ -60,7 +62,7 @@ public class Start extends LEngine {
 	}
 
 	public static void main(String[] args) {
-		new Start(1024, 720, "Reaping the Benifits! - Alpha");
+		new Start(1024, 720, "Reaping the Benefits! - Alpha");
 
 	}
 

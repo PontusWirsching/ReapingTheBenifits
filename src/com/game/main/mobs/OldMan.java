@@ -6,7 +6,6 @@ import java.util.Random;
 
 import com.game.main.Game;
 import com.game.main.Mob;
-import com.lss.flasher.LEngine;
 import com.lss.flasher.Graphics.Animation;
 import com.lss.flasher.Graphics.Shape;
 import com.lss.flasher.Graphics.ShapeRender;
@@ -23,9 +22,9 @@ public class OldMan extends Mob {
 
 		speed = 1;
 
-		walk.addFrame(Loader.loadImage("/oldman.png"));
-		walk.addFrame(Loader.loadImage("/oldman1.png"));
-		walk.addFrame(Loader.loadImage("/oldman2.png"));
+		walk.addFrame(Loader.loadImageWithAbsolutePath(Game.RESOURCES + "/oldman.png"));
+		walk.addFrame(Loader.loadImageWithAbsolutePath(Game.RESOURCES + "/oldman1.png"));
+		walk.addFrame(Loader.loadImageWithAbsolutePath(Game.RESOURCES + "/oldman2.png"));
 
 		shape = new Shape(0, 0, 0, 0);
 		shape.setShapeRender(new ShapeRender() {

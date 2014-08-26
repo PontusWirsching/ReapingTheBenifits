@@ -1,21 +1,21 @@
 package com.pontus.main;
 
 import java.awt.Component;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
 
+import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSpinner;
-import javax.swing.border.EmptyBorder;
-import javax.swing.SpinnerNumberModel;
-import javax.swing.JButton;
 import javax.swing.JTextField;
+import javax.swing.SpinnerNumberModel;
+import javax.swing.border.EmptyBorder;
 
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import java.io.File;
-
+@SuppressWarnings("serial")
 public class NewLevel extends JFrame {
 
 	private JPanel contentPane;
@@ -67,7 +67,7 @@ public class NewLevel extends JFrame {
 		final JButton btnBrowse = new JButton("Browse");
 		btnBrowse.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				chooser.setCurrentDirectory(new File("./res"));
+				chooser.setCurrentDirectory(new File("C:\\Users\\Pontus\\AppData\\Roaming\\LostSourceStudios\\ReapingTheBenefits\\levels"));
 			    int returnVal = chooser.showSaveDialog(frame);
 			    
 			    
