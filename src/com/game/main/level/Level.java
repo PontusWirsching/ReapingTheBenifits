@@ -1,5 +1,6 @@
 package com.game.main.level;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.io.File;
@@ -10,8 +11,10 @@ import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.input.SAXBuilder;
 
+import com.game.main.Game;
 import com.game.main.Mob;
 import com.game.main.mobs.OldMan;
+import com.lss.flasher.LEngine;
 import com.lss.flasher.tools.Loader;
 import com.pontus.main.Layer;
 
@@ -70,22 +73,24 @@ public class Level {
 		for (Mob m : mobs) {
 			m.update();
 		}
+		System.out.println("FPS: " + LEngine.getFPS());
 	}
 
 	public void render(Graphics g) {
 		for (Layer l : layers) {
 			l.renderGame(g);
 		}
+		
 		for (Mob m : mobs) {
 			m.render(g);
 		}
 
-		// g.setColor(Color.blue);
-		// for (int i = 0; i < width; i++) {
-		// for (int j = 0; j < height; j++) {
-		// g.drawRect(i * 64 - Game.xOff, j * 64 - Game.yOff, 64, 64);
-		// }
-		// }
+//		g.setColor(Color.blue);
+//		for (int i = 0; i < width; i++) {
+//			for (int j = 0; j < height; j++) {
+//				g.drawRect(i * 128 - Game.xOff, j * 128 - Game.yOff, 128, 128);
+//			}
+//		}
 	}
 
 	public SAXBuilder builder;

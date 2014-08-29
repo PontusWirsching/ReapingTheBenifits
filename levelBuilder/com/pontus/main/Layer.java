@@ -2,6 +2,7 @@ package com.pontus.main;
 
 import java.awt.Graphics;
 
+import com.game.main.Game;
 import com.game.main.level.Tile;
 
 public class Layer {
@@ -23,8 +24,8 @@ public class Layer {
 	}
 
 	public void render(Graphics g) {
-		for (int x = 0; x < width; x++) {
-			for (int y = 0; y < height; y++) {
+		for (int x = (Main.xOff / Main.tileSize); x < (Main.xOff / Main.tileSize) + 33; x++) {
+			for (int y = (Main.yOff / Main.tileSize); y < (Main.yOff / Main.tileSize) + 24; y++) {
 				try {
 					Tile t = getTile(x, y);
 					t.renderEditor(g, x, y);
@@ -34,8 +35,8 @@ public class Layer {
 	}
 	
 	public void renderGame(Graphics g) {
-		for (int x = 0; x < width; x++) {
-			for (int y = 0; y < height; y++) {
+		for (int x = (Game.xOff / Game.tileSize); x < (Game.xOff / Game.tileSize) + 9; x++) {
+			for (int y = (Game.yOff / Game.tileSize); y < (Game.yOff / Game.tileSize) + 7; y++) {
 				try {
 					Tile t = getTile(x, y);
 					t.render(g);
