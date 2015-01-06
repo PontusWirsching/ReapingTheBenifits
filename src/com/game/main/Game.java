@@ -18,7 +18,7 @@ public class Game extends State
 
 	public static String RESOURCES = PATH + File.separator + "resources" + File.separator + "textures";
 	
-	public static int tileSize = 128;
+	public static int tileSize = 64;
 
 	public static int xOff, yOff;
 
@@ -59,8 +59,8 @@ public class Game extends State
 	public void update()
 	{
 
-		xOff = player.x - LEngine.WIDTH / 2 + 32;
-		yOff = player.y - LEngine.HEIGHT / 2 + 32;
+		xOff = player.x - LEngine.WIDTH / 2;
+		yOff = player.y - LEngine.HEIGHT / 2;
 
 		LevelHandler.update();
 		player.update();

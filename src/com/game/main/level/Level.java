@@ -85,12 +85,12 @@ public class Level {
 			m.render(g);
 		}
 
-//		g.setColor(Color.blue);
-//		for (int i = 0; i < width; i++) {
-//			for (int j = 0; j < height; j++) {
-//				g.drawRect(i * 128 - Game.xOff, j * 128 - Game.yOff, 128, 128);
-//			}
-//		}
+		g.setColor(Color.blue);
+		for (int i = 0; i < width; i++) {
+			for (int j = 0; j < height; j++) {
+				g.drawRect(i * Game.tileSize - Game.xOff, j * Game.tileSize - Game.yOff,  Game.tileSize, Game.tileSize);
+			}
+		}
 	}
 
 	public SAXBuilder builder;

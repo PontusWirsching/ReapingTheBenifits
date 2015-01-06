@@ -1,5 +1,6 @@
 package com.game.main;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 
@@ -12,8 +13,11 @@ import com.lss.flasher.tools.Loader;
 
 public class Player extends Mob {
 
-	public Animation walk = new Animation(0.15, 0, 0, Game.tileSize, Game.tileSize);
-	public Animation attackAnimation = new Animation(0.15, 0, 0, Game.tileSize * 2, Game.tileSize);
+	public static int playerSize = 128;
+
+	
+	public Animation walk = new Animation(0.15, 0, 0, playerSize, playerSize);
+	public Animation attackAnimation = new Animation(0.15, 0, 0, playerSize * 2, playerSize);
 
 	public Shape shape;
 
@@ -31,7 +35,7 @@ public class Player extends Mob {
 
 				if (attackAnimation.play) {
 					if (attackLeft) {
-						attackAnimation.x = -Game.tileSize;
+						attackAnimation.x = -playerSize;
 					} else {
 						attackAnimation.x = 0;
 					}
@@ -79,7 +83,7 @@ public class Player extends Mob {
 		tileX = (x + Game.tileSize / 2) / Game.tileSize;
 		tileY = (y + Game.tileSize / 2) / Game.tileSize;
 
-		int speed = 4;
+		int speed = 6;
 
 		if (LEngine.key.getKey(0) && !moveUp && !moveDown) {
 			dir = 0;
@@ -229,7 +233,7 @@ public class Player extends Mob {
 
 		walk.setFlip(flip);
 
-		shape.pos.set(x - Game.xOff, y - Game.yOff);
+		shape.pos.set(x - Game.xOff - playerSize / 4, y - Game.yOff - playerSize / 2);
 
 		walk.update();
 		walk.setAnimationSpeed(0.25);
@@ -238,19 +242,19 @@ public class Player extends Mob {
 	@Override
 	public void render(Graphics g) {
 
-		/*
-		 * g.setColor(Color.green);
-		 * g.fillRect(tileX * 64 - Game.xOff, tileY * 64 - Game.yOff, 64, 64);
-		 * g.setColor(Color.yellow);
-		 * g.drawRect(rTileX * 64 - Game.xOff, rTileY * 64 - Game.yOff, 64, 64);
-		 * 
-		 * g.setColor(Color.blue);
-		 * g.drawRect(x - Game.xOff, y - Game.yOff, 64, 64);
-		 * g.setColor(Color.blue);
-		 * g.drawRect(x - Game.xOff + 32, y - Game.yOff + 32, 32, 32);
-		 */
+		
+		  g.setColor(Color.green);
+		  g.fillRect(tileX * 64 - Game.xOff, tileY * 64 - Game.yOff, 64, 64);
+		  g.setColor(Color.yellow);
+		  g.drawRect(rTileX * 64 - Game.xOff, rTileY * 64 - Game.yOff, 64, 64);
+		  
+		  g.setColor(Color.red);
+		  g.drawRect(x - Game.xOff, y - Game.yOff, 64, 64);
+		  g.setColor(Color.blue);
+		  g.drawRect(x - Game.xOff + 32, y - Game.yOff + 32, 32, 32);
+		 
 
-		shape.setGraphics(g.create());
+//		shape.setGraphics(g.create());
 
 	}
 

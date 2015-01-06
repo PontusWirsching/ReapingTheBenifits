@@ -4,6 +4,7 @@ import java.awt.Graphics;
 
 import com.game.main.Game;
 import com.game.main.level.Tile;
+import com.lss.flasher.LEngine;
 
 public class Layer {
 
@@ -35,11 +36,10 @@ public class Layer {
 	}
 	
 	public void renderGame(Graphics g) {
-		for (int x = (Game.xOff / Game.tileSize); x < (Game.xOff / Game.tileSize) + 9; x++) {
-			for (int y = (Game.yOff / Game.tileSize); y < (Game.yOff / Game.tileSize) + 7; y++) {
+		for (int x = (Game.xOff / Game.tileSize); x < (Game.xOff / Game.tileSize) + LEngine.WIDTH / Game.tileSize + 2; x++) {
+			for (int y = (Game.yOff / Game.tileSize); y < (Game.yOff / Game.tileSize) + LEngine.HEIGHT / Game.tileSize + 2; y++) {
 				try {
-					Tile t = getTile(x, y);
-					t.render(g);
+					getTile(x, y).render(g);
 				} catch (Exception e) {}
 			}
 		}
